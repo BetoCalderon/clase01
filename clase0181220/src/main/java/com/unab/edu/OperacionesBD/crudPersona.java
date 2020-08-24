@@ -5,8 +5,12 @@
  */
 package com.unab.edu.OperacionesBD;
 
+import com.unab.edu.DAO.ClsPersona;
+import com.unab.edu.Entidades.Persona;
 import com.unab.edu.conexionmysql.ConexionBd;
 import java.sql.Connection;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -19,8 +23,29 @@ public class crudPersona extends javax.swing.JFrame {
      */
     public crudPersona() {
         initComponents();
+        MostrarTablaPersona();
     }
 
+    void MostrarTablaPersona(){
+        //creando un aray de objetos
+        String TITULOS [] = {"ID","NOMBRE","APELLIDO","EDAD","SEXO"};
+        DefaultTableModel ModeloTabla = new DefaultTableModel(null, TITULOS);
+        ClsPersona clasePersona = new ClsPersona();
+        String filas [] = new String[5];
+        ArrayList <Persona> Personas =  clasePersona.MostrarPersona();
+        
+        for (var IterarDatosPersona : Personas){
+            //String.valueOf permite convertir un dato estring a int.
+            filas[0]= String.valueOf(IterarDatosPersona.getIdPersona());
+            filas[1]= IterarDatosPersona.getNombre();
+            filas[2]= IterarDatosPersona.getApellido();
+            filas[3]= String.valueOf(IterarDatosPersona.getEdad());
+            filas[4]= IterarDatosPersona.getSexo();
+            ModeloTabla.addRow(filas);
+            
+        } 
+        tb_Persona.setModel(ModeloTabla);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,7 +58,7 @@ public class crudPersona extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tb_Persona = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         txtId = new javax.swing.JTextField();
         txtApellido = new javax.swing.JTextField();
@@ -52,7 +77,7 @@ public class crudPersona extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tb_Persona.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -63,7 +88,7 @@ public class crudPersona extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tb_Persona);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -84,6 +109,8 @@ public class crudPersona extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Mostrar Datos", jPanel2);
 
+        jPanel1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 204, 255)));
+
         txtApellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtApellidoActionPerformed(evt);
@@ -91,10 +118,25 @@ public class crudPersona extends javax.swing.JFrame {
         });
 
         btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
 
         btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
 
         btnActulizar.setText("Actulizar Datos ");
+        btnActulizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActulizarActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("ID");
 
@@ -123,10 +165,10 @@ public class crudPersona extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtId)
-                            .addComponent(txtEdad, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 486, Short.MAX_VALUE)
-                            .addComponent(txtApellido, javax.swing.GroupLayout.DEFAULT_SIZE, 486, Short.MAX_VALUE)
-                            .addComponent(txtSexo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 486, Short.MAX_VALUE)
-                            .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 486, Short.MAX_VALUE)
+                            .addComponent(txtEdad, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE)
+                            .addComponent(txtApellido, javax.swing.GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE)
+                            .addComponent(txtSexo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE)
+                            .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel1)
@@ -213,6 +255,39 @@ public class crudPersona extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        // TODO add your handling code here:
+        ClsPersona personas = new ClsPersona();
+        Persona Persona = new Persona();
+        Persona.setNombre(txtNombre.getText());
+        Persona.setApellido(txtApellido.getText());
+        Persona.setEdad(Integer.parseInt(txtEdad.getText()));
+        Persona.setSexo(txtSexo.getText());
+        personas.AgregarPersonas(Persona);
+        MostrarTablaPersona();
+        
+    }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        ClsPersona personas = new ClsPersona();
+        Persona Persona = new Persona();
+        Persona.setIdPersona(Integer.parseInt(txtId.getText()));
+        personas.BorrarPersonas(Persona);
+        MostrarTablaPersona();
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnActulizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActulizarActionPerformed
+       ClsPersona personas = new ClsPersona();
+        Persona Persona = new Persona();
+        Persona.setIdPersona(Integer.parseInt(txtId.getText()));
+        Persona.setNombre(txtNombre.getText());
+        Persona.setApellido(txtApellido.getText());
+        Persona.setEdad(Integer.parseInt(txtEdad.getText()));
+        Persona.setSexo(txtSexo.getText());
+        personas.ActulizarPersonas(Persona);
+        MostrarTablaPersona();
+    }//GEN-LAST:event_btnActulizarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -262,7 +337,7 @@ public class crudPersona extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tb_Persona;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtEdad;
     private javax.swing.JTextField txtId;
