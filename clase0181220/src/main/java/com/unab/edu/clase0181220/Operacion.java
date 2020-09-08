@@ -8,7 +8,7 @@ package com.unab.edu.clase0181220;
 
 /**
  *
- * @author BetoCalderon
+ * @author dayan
  */
 public class Operacion extends javax.swing.JFrame {
 

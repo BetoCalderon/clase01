@@ -9,12 +9,16 @@ import lombok.*;
 
 /**
  *
- * @author BetoCalderon
+ * @author dayan
  */
 @Data
 @EqualsAndHashCode(callSuper=false)
+
 public class Estudiante extends Persona{
     private int Id;
     private int Matricula;
+    private String Usu;
+    private String Pass;
     
+   
 }

@@ -1,0 +1,27 @@
+cmd.exe
+/X
+/C
+""C:\Program Files\Java\jdk-14.0.1\bin\javadoc.exe" @options @packages"
+C:\Users\BetoCalderon\Documents\NetBeansProjects\clase0181220\target\apidocs\allclasses-index.html = 1599603017692
+C:\Users\BetoCalderon\Documents\NetBeansProjects\clase0181220\target\apidocs\allpackages-index.html = 1599603017703
+C:\Users\BetoCalderon\Documents\NetBeansProjects\clase0181220\target\apidocs\constant-values.html = 1599603017145
+C:\Users\BetoCalderon\Documents\NetBeansProjects\clase0181220\target\apidocs\deprecated-list.html = 1599603017537
+C:\Users\BetoCalderon\Documents\NetBeansProjects\clase0181220\target\apidocs\element-list = 1599603016987
+C:\Users\BetoCalderon\Documents\NetBeansProjects\clase0181220\target\apidocs\help-doc.html = 1599603017942
+C:\Users\BetoCalderon\Documents\NetBeansProjects\clase0181220\target\apidocs\index-all.html = 1599603017676
+C:\Users\BetoCalderon\Documents\NetBeansProjects\clase0181220\target\apidocs\index.html = 1599603017549
+C:\Users\BetoCalderon\Documents\NetBeansProjects\clase0181220\target\apidocs\member-search-index.js = 1599603017660
+C:\Users\BetoCalderon\Documents\NetBeansProjects\clase0181220\target\apidocs\member-search-index.zip = 1599603017667
+C:\Users\BetoCalderon\Documents\NetBeansProjects\clase0181220\target\apidocs\options = 1599603010571
+C:\Users\BetoCalderon\Documents\NetBeansProjects\clase0181220\target\apidocs\overview-summary.html = 1599603017815
+C:\Users\BetoCalderon\Documents\NetBeansProjects\clase0181220\target\apidocs\overview-tree.html = 1599603017522
+C:\Users\BetoCalderon\Documents\NetBeansProjects\clase0181220\target\apidocs\package-search-index.js = 1599603017621
+C:\Users\BetoCalderon\Documents\NetBeansProjects\clase0181220\target\apidocs\package-search-index.zip = 1599603017632
+C:\Users\BetoCalderon\Documents\NetBeansProjects\clase0181220\target\apidocs\packages = 1599603010574
+C:\Users\BetoCalderon\Documents\NetBeansProjects\clase0181220\target\apidocs\script.js = 1599603017995
+C:\Users\BetoCalderon\Documents\NetBeansProjects\clase0181220\target\apidocs\search.js = 1599603018131
+C:\Users\BetoCalderon\Documents\NetBeansProjects\clase0181220\target\apidocs\serialized-form.html = 1599603017192
+C:\Users\BetoCalderon\Documents\NetBeansProjects\clase0181220\target\apidocs\stylesheet.css = 1599603017986
+C:\Users\BetoCalderon\Documents\NetBeansProjects\clase0181220\target\apidocs\system-properties.html = 1599603017713
+C:\Users\BetoCalderon\Documents\NetBeansProjects\clase0181220\target\apidocs\type-search-index.js = 1599603017637
+C:\Users\BetoCalderon\Documents\NetBeansProjects\clase0181220\target\apidocs\type-search-index.zip = 1599603017655

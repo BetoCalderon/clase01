@@ -9,16 +9,14 @@ import lombok.Data;
 
 /**
  *
- * @author BetoCalderon
+ * @author 
  */
 
 @Data
 public class Persona {
-    
     protected int idPersona;
     protected String Nombre;
     protected String Apellido;
     protected int Edad;
-    protected String Sexo;
-    
+    protected String Sexo; 
 }
