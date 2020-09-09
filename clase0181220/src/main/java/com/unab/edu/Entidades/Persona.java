@@ -3,20 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.unab.edu.Entidades;
-
+package com.unab.edu.entidades;
 import lombok.Data;
-
 /**
  *
- * @author 
+ * @author CruzCalles
  */
 
 @Data
 public class Persona {
+    
+    
     protected int idPersona;
     protected String Nombre;
     protected String Apellido;
     protected int Edad;
-    protected String Sexo; 
+    protected String Sexo;
+    
+    
 }

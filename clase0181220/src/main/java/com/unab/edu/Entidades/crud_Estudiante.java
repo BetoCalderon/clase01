@@ -15,7 +15,7 @@ import lombok.Data;
 public class crud_Estudiante {
     protected int idEstudiante;
     protected int Matricula;
-    protected int IdPersona;
+    protected int idPersona;
     protected String Usuario;
     protected String Password;
     protected int NIE;
