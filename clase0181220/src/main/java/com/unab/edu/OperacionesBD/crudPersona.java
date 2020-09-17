@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- @author 
+ @author dayan
  */
 public class crudPersona extends javax.swing.JFrame {
 
@@ -109,7 +109,7 @@ public class crudPersona extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 383, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -224,7 +224,7 @@ public class crudPersona extends javax.swing.JFrame {
                     .addComponent(btnEliminar)
                     .addComponent(btnActulizar)
                     .addComponent(jButton1))
-                .addContainerGap(105, Short.MAX_VALUE))
+                .addContainerGap(94, Short.MAX_VALUE))
         );
 
         tbMostrar.addTab("Operaciones CRUD", jPanel1);
@@ -240,7 +240,9 @@ public class crudPersona extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tbMostrar)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(tbMostrar))
         );
 
         pack();

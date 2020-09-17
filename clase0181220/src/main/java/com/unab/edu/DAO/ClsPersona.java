@@ -5,20 +5,16 @@
  */
 package com.unab.edu.DAO;
 
-import com.unab.edu.conexiónmysql.ConexionBd;
-import com.unab.edu.entidades.Persona;
-import java.sql.*;
+import com.unab.edu.Entidades.Persona;
 import java.util.*;
+import com.unab.edu.conexionmysql.ConexionBd;
+import java.sql.*;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author 
- */
 public class ClsPersona {
 
-    ConexionBd classConectar = new ConexionBd();
-    Connection conectar = classConectar.retornarConexion();
+    ConexionBd claseConectar = new ConexionBd();
+    Connection conectar = claseConectar.retornarConexion();
 
     public ArrayList<Persona> MostrarPersona() {
         ArrayList<Persona> Personas = new ArrayList<>();
@@ -26,6 +22,7 @@ public class ClsPersona {
         try {
             CallableStatement Statement = conectar.prepareCall("call SP_S_Persona()");
             ResultSet resultadoConsulta = Statement.executeQuery();
+
             while (resultadoConsulta.next()) {
                 Persona persona = new Persona();
                 persona.setIdPersona(resultadoConsulta.getInt("idPersona"));
@@ -33,60 +30,65 @@ public class ClsPersona {
                 persona.setApellido(resultadoConsulta.getString("Apellido"));
                 persona.setEdad(resultadoConsulta.getInt("Edad"));
                 persona.setSexo(resultadoConsulta.getString("Sexo"));
+
                 Personas.add(persona);
             }
-             conectar.close();
+            conectar.close();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
         return Personas;
     }
 
-    public void AgregarPersonas(Persona per) {
-
+    public void AgregarPersona(Persona per) {
         try {
             CallableStatement Statement = conectar.prepareCall("call SP_I_Persona(?,?,?,?)");
-            Statement.setString("pNombre", per.getNombre());
-            Statement.setString("pApellido", per.getApellido());
-            Statement.setInt("pEdad", per.getEdad());
-            Statement.setString("pSexo", per.getSexo());
+            Statement.setString("PNombre", per.getNombre());
+            Statement.setString("PApellido", per.getApellido());
+            Statement.setInt("PEdad", per.getEdad());
+            Statement.setString("Psexo", per.getSexo());
+
             Statement.execute();
-            JOptionPane.showMessageDialog(null, "¡Registro Exitoso!");
+            JOptionPane.showMessageDialog(null, "Persona guardada");
+
             conectar.close();
-        } catch (Exception e) {
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
         }
-
     }
-    
-    public void BorrarPersonas(Persona per) {
 
+    public void BorrarPersona(Persona per) {
         try {
             CallableStatement Statement = conectar.prepareCall("call SP_D_Persona(?)");
-            Statement.setInt("pidPersona", per.getIdPersona());
+
+            Statement.setInt("PIdPersona", per.getIdPersona());
+
             Statement.execute();
-            JOptionPane.showMessageDialog(null, "¡Datos Eliminados!");
+            JOptionPane.showMessageDialog(null, "Persona eliminada");
+
             conectar.close();
-        } catch (Exception e) {
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
         }
-
     }
 
-    public void ActualizarPersonas(Persona per) {
-
+    public void ActualizarPersona(Persona per) {
         try {
             CallableStatement Statement = conectar.prepareCall("call SP_U_Persona(?,?,?,?,?)");
-            Statement.setInt("pidPersona", per.getIdPersona());
-            Statement.setString("pNombre", per.getNombre());
-            Statement.setString("pApellido", per.getApellido());
-            Statement.setInt("pEdad", per.getEdad());
-            Statement.setString("pSexo", per.getSexo());
+            Statement.setInt("PIdPersona", per.getIdPersona());
+            Statement.setString("PNombre", per.getNombre());
+            Statement.setString("PApellido", per.getApellido());
+            Statement.setInt("PEdad", per.getEdad());
+            Statement.setString("Psexo", per.getSexo());
+
             Statement.execute();
-            JOptionPane.showMessageDialog(null, "Actualización de datos");
+            JOptionPane.showMessageDialog(null, "Persona actualizada");
+
             conectar.close();
-        } catch (Exception e) {
+
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
         }
     }
+
 }

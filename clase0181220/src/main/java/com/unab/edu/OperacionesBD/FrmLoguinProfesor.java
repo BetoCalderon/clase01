@@ -5,19 +5,19 @@
  */
 package com.unab.edu.OperacionesBD;
 
-import com.unab.edu.DAO.CLSEstudiante;
+import com.unab.edu.DAO.CLSProfesor;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author dayan
  */
-public class FrmLoguin extends javax.swing.JFrame {
+public class FrmLoguinProfesor extends javax.swing.JFrame {
 
     /**
-     * Creates new form FrmLoguin
+     * Creates new form FrmLoguinProfesor
      */
-    public FrmLoguin() {
+    public FrmLoguinProfesor() {
         initComponents();
     }
 
@@ -54,24 +54,22 @@ public class FrmLoguin extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(49, 49, 49)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(txtUser)
+                        .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel2)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtUser)
-                                .addComponent(txtPass, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE))
-                            .addComponent(jLabel2)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(116, 116, 116)
+                        .addGap(76, 76, 76)
                         .addComponent(btnEntrar)))
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(71, 71, 71)
+                .addGap(43, 43, 43)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -81,26 +79,25 @@ public class FrmLoguin extends javax.swing.JFrame {
                 .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addComponent(btnEntrar)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-        CLSEstudiante est = new CLSEstudiante();
+        CLSProfesor prof = new CLSProfesor();
         String user = txtUser.getText();
         String pass = txtPass.getText();
-        
-        var variableContenedoraConsultaBD = est.LoguinEstudiante(user, pass);
-        
+
+        var variableContenedoraConsultaBD = prof.LoguinProfesor(user, pass);
+
         if(variableContenedoraConsultaBD == true){
             JOptionPane.showMessageDialog(null, "Welcome");
         }else {
-            JOptionPane.showMessageDialog(null, "Error"); 
+            JOptionPane.showMessageDialog(null, "Error");
         }
-    
-        
+
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     /**
@@ -120,20 +117,20 @@ public class FrmLoguin extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmLoguin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmLoguinProfesor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmLoguin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmLoguinProfesor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmLoguin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmLoguinProfesor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmLoguin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmLoguinProfesor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmLoguin().setVisible(true);
+                new FrmLoguinProfesor().setVisible(true);
             }
         });
     }

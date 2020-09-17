@@ -12,10 +12,7 @@ import java.sql.Connection;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author CruzCalles
- */
+
 public class ClsJoinPersonaEstudiante {
     
     ConexionBd cn = new ConexionBd();
