@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author dayan
+ * @author Beto
  */
 public class CLSJoinnPersonaEstudiante {
     ConexionBd cn = new ConexionBd();

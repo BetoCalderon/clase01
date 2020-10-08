@@ -16,7 +16,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author dayan
+ * @author Beto
  */
 public class FrmCrudProfesor extends javax.swing.JFrame {
 
@@ -156,7 +156,7 @@ public class FrmCrudProfesor extends javax.swing.JFrame {
 
         tpMostrar.addTab("Mostrar Datos", jPanel2);
 
-        jPanel1.setBackground(new java.awt.Color(204, 0, 153));
+        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
 
         txtIdPersonaProfesor.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N

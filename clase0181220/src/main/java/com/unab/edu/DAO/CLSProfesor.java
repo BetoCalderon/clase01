@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author dayan
+ * @author Beto
  */
 public class CLSProfesor {
     ConexionBd claseConectar = new ConexionBd();
@@ -28,8 +28,8 @@ public class CLSProfesor {
         try {
             CallableStatement st = conectar.prepareCall("call SP_S_LOGUINPROFESOR(?,?)");
 
-            st.setString("pUsuario", Usuario);
-            st.setString("pPass", Pass);
+            st.setString("pusuario", Usuario);
+            st.setString("ppass", Pass);
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
                 Profesor prof = new Profesor();

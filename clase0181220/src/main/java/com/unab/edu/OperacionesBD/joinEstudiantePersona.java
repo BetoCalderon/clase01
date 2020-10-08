@@ -10,7 +10,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author dayan
+ * @author Beto
  */
 public class joinEstudiantePersona extends javax.swing.JFrame {
 

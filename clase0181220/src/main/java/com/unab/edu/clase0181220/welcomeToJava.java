@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author dayan
+ * @author Beto
  */
 public class welcomeToJava extends javax.swing.JDialog {
 

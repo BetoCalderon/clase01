@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author dayan
+ * @author Beto
  */
 public class FrmLoguin extends javax.swing.JFrame {
 
